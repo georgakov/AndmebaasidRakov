@@ -1,0 +1,12 @@
+andmem - данные
+haldus - администиривание
+andmebaaside haldussüsteem - система управления БД
+СУБД - MySQL, XAMPP/phpMyAdmin, MS SQL Server
+----------------------------------------------------
+tabel 
+rida = kirje - запись
+veerg  = väli - поле
+primaarne võti - Primary key
+väline võti - Foreign Key
+päring - Query - запрос
+käivita  - Execute - запустить
