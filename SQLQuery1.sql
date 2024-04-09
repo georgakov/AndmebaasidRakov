@@ -60,7 +60,7 @@ values('Mihail', 'Agapov', '79104444116');
 select * from opetaja;
 
 insert into opetaja(eesnimi, perekonnanimi, kontakt)
-values('Irina', 'Merkulova', '@telegram');
+values('Irina', 'Merkulova', '5656556666');
 select * from opetaja;
 
 --andmete uuendamine
@@ -85,3 +85,33 @@ SELECT * FROM oppeaine;
 
 
 
+USE rakovTITpv22;
+CREATE TABLE opilane (
+    opilaneID int PRIMARY KEY IDENTITY(1,1),
+    eesnimi varchar(50),
+    perenimi varchar(50),
+    isikukood  varchar(11),
+	address Text,);
+
+insert into opilane(eesnimi, perenimi,isikukood,address)
+values('Di','Fg', '477455', 'fkkfk33'),
+('Dffi','ffFg', '565476457', 'fkkfkdf33');
+
+
+
+CREATE TABLE hindamine(
+	hindamiseID int Primary key identity(1,1),
+	kuupaev varchar(50) NOT NULL,
+	oppeaineID int,
+	opelaneID int ,
+	hinne int);
+
+SELECT * FROM hindamine;
+
+SELECT * FROM opetaja;
+SELECT * FROM oppeaine;
+
+SELECT * FROM hindamine;
+SELECT * FROM opilane;
+
+ALTER TABLE opilane ADD FOREIGN KEY (opetajaID) REFERENCES opetaja(opetajaID);
