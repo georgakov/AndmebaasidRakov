@@ -1,0 +1,8 @@
+git config --global user.name "Georg Rakov"
+git config --global user.email "georg.rakov3@gmail.com"
+git config --global --list
+git status
+----------------------------
+kui tekkinud uss failf ja salvestatud, siis on vaja add ja commit 
+git add .
+git commit -a -m "Põhi ab sõnad on lisatud"
