@@ -121,3 +121,15 @@ insert into kaup (kaup, kirjeldus) values ('Subaru', 'Alcyone SVX');
 insert into kaup (kaup, kirjeldus) values ('Volkswagen', 'GTI');
 
 select * from kaup;
+
+-- table kliendikaart
+create table kliendikaart(
+kliendikaartiID int primary key identity(1,1),
+kliendikaart varchar(20),
+)
+
+select * from kliendikaart;
+insert into kliendikaart(
+kliendikaart)
+values ('platinum'), ('silver'), ('gold');
+select * from kliendikaart;
