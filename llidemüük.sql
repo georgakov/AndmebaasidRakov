@@ -3,6 +3,10 @@ USE llidemyylrakov;
 
 --table tootaja
 CREATE TABLE tootaja(
+tootajaID int primary key identity(1,1),
+eesnimi varchar(20),
+perekonnanimi varchar(20),
+isikukood varchar(11));
 SELECT * FROM tootaja;
 
 INSERT INTO tootaja(eesnimi,perekonnanimi,isikukood)
@@ -65,8 +69,8 @@ SELECT * FROM tootaja;
 create table kaup(
 kaupID int primary key identity(1,1),
 kaup varchar(15),
-kirjeldus varchar(100),
-)
+kirjeldus varchar(100)
+);
 SELECT * FROM kaup; 
 
 insert into kaup (kaup, kirjeldus) values ('Suzuki', 'SX4');
@@ -125,11 +129,142 @@ select * from kaup;
 -- table kliendikaart
 create table kliendikaart(
 kliendikaartiID int primary key identity(1,1),
-kliendikaart varchar(20),
-)
+kliendikaart varchar(20)
+);
 
 select * from kliendikaart;
 insert into kliendikaart(
 kliendikaart)
 values ('platinum'), ('silver'), ('gold');
 select * from kliendikaart;
+
+--table myyk
+create table myyk(
+myykID int primary key identity(1,1),
+kuupaev varchar(20),
+tootajaID int,
+kaupID int,
+kogus int,
+hind decimal(7,2),
+kliendikaartID int,
+
+foreign key (tootajaID) references tootaja(tootajaID),
+foreign key (kaupID) references kaup(kaupID),
+foreign key (kliendikaartID) references kliendikaart(kliendikaartiID));
+select * from  myyk;
+
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Ford', 1, 1, '4513', 506, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Nissan', 2, 2, '569', 311, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Volvo', 3, 3, '4500', 132, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Infiniti', 4, 4, '4', 600, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chevrolet', 5, 5, '778', 855, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Infiniti', 6, 6, '66', 202, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chevrolet', 7, 7, '1697', 719, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Mazda', 8, 8, '410', 257, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Mercury', 9, 9, '705', 899, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chevrolet', 10, 10, '0', 985, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('GMC', 11, 11, '100', 475, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Volkswagen', 12, 12, '11', 955, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Kia', 13, 13, '70', 726, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chrysler', 14, 14, '9', 592, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chevrolet', 15, 15, '281', 684, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Mazda', 16, 16, '1253', 564, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Mercedes-Benz', 17, 17, '78', 443, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Buick', 18, 18, '279', 398, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Mazda', 19, 19, '1214', 645, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Dodge', 20, 20, '119', 510, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Mercedes-Benz', 21, 21, '12', 488, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chevrolet', 22, 22, '1110', 586, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Bentley', 23, 23, '115', 350, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Pontiac', 24, 24, '1370', 843, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Lexus', 25, 25, '1487', 194, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Jaguar', 26, 26, '33', 223, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Mitsubishi', 27, 27, '937', 912, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Hyundai', 28, 28, null, 265, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Honda', 29, 29, '16', 825, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Porsche', 30, 30, '3331', 832, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('GMC', 31, 31, '288', 912, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Toyota', 32, 32, '278', 493, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('BMW', 33, 33, '3', 341, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Mercury', 34, 34, '18', 522, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chevrolet', 35, 35, '9', 492, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chrysler', 36, 36, null, 317, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Maserati', 37, 37, '250', 310, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Toyota', 38, 38, '302', 872, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Buick', 39, 39, null, 472, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Ford', 40, 40, '33', 550, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Nissan', 41, 41, '75', 616, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Corbin', 42, 42, '35', 343, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Isuzu', 43, 43, null, 374, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Suzuki', 44, 44, '320', 567, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Cadillac', 45, 45, '1923', 687, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chevrolet', 46, 46, '82', 554, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Chevrolet', 47, 47, '65', 504, 2);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Maybach', 48, 48, '220', 578, 3);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Acura', 49, 49, '1048', 753, 1);
+insert into myyk (kuupaev, tootajaID, kaupID, kogus, hind, kliendikaartID) values ('Audi', 50, 50, '2415', 560, 2);
+
+select * from  myyk;
+
+--table kojuvedu
+create table kojuvedu(
+veduID INT primary key identity(1,1),
+aadress varchar(20),
+kuupaev date,
+kaupID int,
+kellaeg time,
+foreign key (kaupID) references kaup(kaupID));
+select * from kojuvedu;
+
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (1, '8308 2nd Drive', '2023-07-22', '1:51');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (2, '3 Helena Court', '2024-03-03', '14:19');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (3, '4564 Parkside Avenue', '2023-12-26', '3:05');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (4, '89812 Bonner Road', '2023-12-30', '23:40');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (5, '4100 Montana Trail', '2023-10-11', '13:33');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (6, '37890 Bultman Court', '2023-09-13', '22:14');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (7, '5458 North Road', '2023-07-22', '10:36');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (8, '8 Glacier Hill Terrace', '2023-09-08', '15:51');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (9, '9213 Waxwing Plaza', '2024-03-30', '9:24');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (10, '241 Mccormick Point', '2023-12-21', '20:00');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (11, '1004 Mallard Park', '2023-05-02', '2:02');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (12, '990 Ridge Oak Junction', '2023-07-08', '7:13');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (13, '650 Lotheville Place', '2024-02-09', '18:07');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (14, '23960 Heffernan Drive', '2023-12-17', '8:30');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (15, '215 Glendale Circle', '2023-12-15', '23:55');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (16, '052 Upham Center', '2023-07-27', '7:29');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (17, '20 Kenwood Pass', '2023-05-28', '4:08');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (18, '59 Fairview Court', '2023-06-19', '12:59');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (19, '14849 Village Green Park', '2023-08-27', '3:37');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (20, '8712 Gerald Street', '2023-10-19', '15:51');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (21, '88 Birchwood Point', '2023-07-28', '6:21');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (22, '2699 Thackeray Hill', '2023-10-10', '22:08');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (23, '5 Harbort Pass', '2023-05-27', '10:52');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (24, '56 Pine View Avenue', '2023-08-14', '11:53');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (25, '4672 Lunder Plaza', '2024-03-15', '13:03');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (26, '4008 Vermont Parkway', '2023-06-21', '13:23');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (27, '99406 Grover Parkway', '2024-01-29', '22:39');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (28, '3 Drewry Center', '2023-10-06', '5:19');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (29, '39929 Blaine Point', '2023-06-27', '15:44');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (30, '6 Crescent Oaks Pass', '2023-09-20', '17:16');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (31, '02787 Thierer Lane', '2023-04-25', '2:47');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (32, '782 Vernon Center', '2024-01-30', '11:51');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (33, '00 Dahle Parkway', '2023-12-31', '1:24');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (34, '2782 Namekagon Pass', '2023-06-18', '3:41');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (35, '87460 Marcy Circle', '2023-06-19', '4:16');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (36, '074 Ridgeway Junction', '2023-08-14', '5:45');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (37, '25559 Red Cloud Plaza', '2024-02-02', '5:38');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (38, '4540 Schiller Trail', '2024-03-30', '9:49');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (39, '9096 Fisk Pass', '2024-01-31', '18:23');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (40, '72239 Bowman Alley', '2024-01-15', '14:36');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (41, '7 Hermina Point', '2023-12-24', '8:31');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (42, '5 Dawn Park', '2024-01-27', '21:08');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (43, '4164 Debs Hill', '2023-08-15', '17:22');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (44, '7 Everett Court', '2024-03-31', '20:51');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (45, '447 Petterle Street', '2023-08-26', '22:47');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (46, '54 Park Meadow Crossing', '2023-06-10', '6:04');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (47, '73678 Lien Court', '2024-04-04', '12:52');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (48, '43550 Hallows Place', '2024-01-19', '10:22');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (49, '05 Randy Pass', '2023-09-06', '22:35');
+insert into kojuvedu (kaupID, aadress, kuupaev, kellaeg) values (50, '0639 Tomscot Parkway', '2023-10-22', '17:01');
+
+select * from kojuvedu;
